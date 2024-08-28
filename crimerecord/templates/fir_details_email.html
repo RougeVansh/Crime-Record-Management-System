@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <table border="1" class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+            <tr>
+                <td colspan="6" style="font-size:20px;color:red;text-align: center;">
+                    FIR Number: {{fir.firno}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="font-size:18px;color:blue">
+                    Complainer Details
+                </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{fir.userid.first_name}}</td>
+                <th>Mobile Number</th>
+                <td>{{fir.userid.last_name}}</td>
+                <th>Email</th>
+                <td>{{fir.userid.username}}</td>
+            </tr>
+            <tr>
+            <tr>
+                <td colspan="6" style="font-size:18px;color:blue">
+                    FIR Details
+                </td>
+            </tr>
+            <th>Police Station</th>
+            <td>{{fir.policestationid.policestationname}}</td>
+            <th>Crime Type</th>
+            <td>{{fir.crimetype.catname}}</td>
+            <th>Name of Accused</th>
+            <td>{{fir.nameaccused}}</td>
+            </tr>
+            <tr>
+
+                <th>Name of Applicants</th>
+                <td>{{fir.nameapplicants}}</td>
+                <th>Parentage of Applicant</th>
+                <td>{{fir.parentageapplicant}}</td>
+                <th>Contact Number</th>
+                <td>{{fir.contactno}}</td>
+            </tr>
+            <tr>
+
+                <th>Address</th>
+                <td colspan="2">{{fir.address}}</td>
+                <th>Purpose of FIR</th>
+                <td colspan="2">{{fir.purposeoffir}}</td>
+            </tr>
+            <tr>
+                <th>Relation with Accused</th>
+                <td>{{fir.relationaccused}}</td>
+                <th>Purpose of FIR</th>
+                <td>{{fir.purposeoffir}}</td>
+                <th>Date of FIR</th>
+                <td>{{fir.dateoffir}}</td>
+            </tr>
+            <tr>
+                <th>Order Final Status</th>
+                <td>
+
+                    {% if fir.status == "Approved" %}
+                    Your FIR has been approved
+                    {% endif %}
+
+                    {% if fir.status == "Cancelled" %}
+                    Your FIR has been cancelled
+                    {% endif %}
+
+
+                    {% if fir.status == None %}
+                    Not Response Yet
+                    {% endif %}
+
+
+                </td>
+                <th>Police Remark</th>
+                {% if fir.status == None %}
+
+                <td>Not Updated Yet</td>
+                {% else %}
+                <td>{{fir.status}}
+                </td>
+                {% endif %}
+                <th>Police Remark Date</th>
+                {% if fir.status == None %}
+
+                <td>Not Updated Yet</td>
+                {% else %}
+                <td>{{fir.remarkdate}}
+                </td>
+                {% endif %}
+            </tr>
+
+
+        </table>
+    </div>
+</div>
